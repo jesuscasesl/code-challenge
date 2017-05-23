@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import request from './request';
-import { ARTICLES_QUERY } from './queries';
+import request from '../Request';
+import { ARTICLES_QUERY } from '../Queries';
 
 class App extends Component {
   // definition
