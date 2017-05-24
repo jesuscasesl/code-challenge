@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Article from '../Article';
 
+import './listArticle.css';
+
 class ListArticle extends Component{
   constructor(props){
     super(props)
@@ -8,7 +10,7 @@ class ListArticle extends Component{
 
   render(){
     return(
-      <div>
+      <div className="listArticle">
         {this.props.articles.map(article => {
           return <Article
             key={article.id}

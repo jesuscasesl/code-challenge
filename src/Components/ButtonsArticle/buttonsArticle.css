@@ -1,0 +1,22 @@
+.buttonsArticle{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+.icon {
+  margin-right: 1rem;
+}
+
+.icon:hover {
+  color: #337ab7;
+}
+
+
+@media (min-width: 700px) {
+
+}
+
+@media (min-width:1025px){
+
+
+}
