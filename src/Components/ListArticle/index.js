@@ -14,6 +14,7 @@ class ListArticle extends Component{
         {this.props.articles.map(article => {
           return <Article
             key={article.id}
+            id={article.id}
             author={article.author}
             title={article.title}
             excerpt={article.excerpt}
