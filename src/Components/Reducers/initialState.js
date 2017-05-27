@@ -1,11 +1,6 @@
 const initialState = {
-  articleList: {
+  listArticles: {
     articles: [],
-    error: null,
-    loading: false
-  },
-  articleActive: {
-    article: null,
     error: null,
     loading: false
   }

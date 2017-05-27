@@ -1,13 +1,10 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux'
 
-import articleList from './articleListReducer';
-import articleActive from './articleActiveReducer';
+import listArticles from './listArticlesReducer';
 
 const rootReducer = combineReducers({
-  routing: routerReducer,
-  articleList,
-  articleActive
+  listArticles
 });
 
 export default rootReducer;
