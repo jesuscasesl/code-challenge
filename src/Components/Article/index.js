@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import ButtonsArticle from '../ButtonsArticle';
 import './article.css';
+
+import ButtonsArticle from '../ButtonsArticle';
 
 class Article extends Component{
   constructor(props){
@@ -10,6 +11,7 @@ class Article extends Component{
     this.handleUpdateArticle = this.handleUpdateArticle.bind(this);
     this.handleDeleteArticle = this.handleDeleteArticle.bind(this);
   }
+
   // Se deja preparado para el ejecicio 3
   handleUpdateArticle(event){
     event.preventDefault();
@@ -23,8 +25,6 @@ class Article extends Component{
 
   render(){
     let pathId = `/${this.props.id}`;
-    let author = `${this.props.author}`;
-    let title= `${this.props.title}`;
 
     return(
       <div className="article">
@@ -33,7 +33,11 @@ class Article extends Component{
             pathname: pathId,
             state: {
                author: `${this.props.author}`,
-               title: `${this.props.title}`
+               title: `${this.props.title}`,
+               excerpt: `${this.props.excerpt}`,
+               content: `${this.props.content}`,
+               published: `${this.props.published}`,
+               tags: `${this.props.tags}`
             }
           }}>
           <div className="info">

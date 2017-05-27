@@ -5,7 +5,7 @@ import {
 } from '../Actions/types';
 import initialState from './initialState';
 
-export default function articleActiveReducer (state = initialState.listArticles, action) {
+export default function listArticlesReducer (state = initialState.listArticles, action) {
   switch (action.type) {
     case LOAD_LIST_ARTICLES_INIT:
       return {
@@ -29,6 +29,7 @@ export default function articleActiveReducer (state = initialState.listArticles,
         error: action.payload,
         loading: false
       };
+
 
     default:
       return state;

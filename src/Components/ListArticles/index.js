@@ -3,9 +3,7 @@ import { bindActionCreators  } from 'redux';
 import { connect } from 'react-redux';
 
 import Article from '../Article';
-import Request from '../Request';
-import { ARTICLES_QUERY } from '../Queries';
-import * as listArticleActions from '../Actions/listArticleActions'
+import * as listArticleActions from '../../redux/Actions/listArticleActions';
 
 import './listArticles.css';
 
@@ -14,9 +12,6 @@ class ListArticles extends Component{
     super(props, context);
   }
 
-
-
-  // lifecycle
   componentWillMount() {
     this.props.listArticleActions.loadListArticlesInit();
   }
@@ -31,6 +26,9 @@ class ListArticles extends Component{
             author={article.author}
             title={article.title}
             excerpt={article.excerpt}
+            content={article.content}
+            published={article.published}
+            tags={article.tags}
           />
         })}
       </div>

@@ -5,10 +5,11 @@
 }
 .icon {
   margin-right: 1rem;
+  color: #337ab7;
 }
 
-.icon:hover {
-  color: #337ab7;
+.icon:hover{
+  color: #4abae4;
 }
 
 
