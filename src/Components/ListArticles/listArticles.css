@@ -1,0 +1,7 @@
+@media (min-width: 700px) {
+  .listArticles{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+  }
+}
