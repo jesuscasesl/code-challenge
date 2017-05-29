@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import uuid from 'uuid';
 
 import ArticlesItem from './articlesItem';
 import './css/articlesList.css';
@@ -16,7 +15,7 @@ const ArticlesList = ({
       articles.map(article => (
         <ArticlesItem
           key={article.id}
-          onArticleItem={onArticleItem}
+          onArticleItem={onArticleItem.bind(this, `${article.id}`)}
           onUpdateArticle={onUpdateArticle}
           onDeleteArticle={onDeleteArticle}
           {...article}

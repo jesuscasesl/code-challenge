@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import ArticlesButtons from './articlesButtons';
 import './css/articlesItem.css';
@@ -25,7 +25,8 @@ const ArticlesItem = ({
            author: author,
            title: title,
            content: content,
-           published: published
+           published: published,
+           id: id
           }
         }}>
           <h2 className="author">{author}</h2>
@@ -37,7 +38,7 @@ const ArticlesItem = ({
       </div>
       <div className="buttons">
         <ArticlesButtons
-          onArticleItem={onArticleItem}
+          onArticleItem={onArticleItem.bind(this, {id})}
           onUpdateArticle={onUpdateArticle}
           onDeleteArticle={onDeleteArticle}
         />

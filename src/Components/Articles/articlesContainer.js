@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -19,9 +18,11 @@ class ArticlesContainer extends Component {
     this.props.listArticleActions.loadListArticlesInit();
   }
 
-  handleOnArticleItem(event){
+  handleOnArticleItem(event, value){
     // Metodo para redirecionar y buscar en los articulos por id
-    console.log(this.props.articles.find(item => item.id === "592b49fb250e940d9afdc848"));
+    let articleSelect = this.props.articles.find(item => item.id === value);
+    console.log(articleSelect);
+    this.props.listArticleActions.articleSelected(articleSelect);
   }
 
   handleOnUpdateArticle(){
@@ -37,7 +38,7 @@ class ArticlesContainer extends Component {
       <section className="container">
         <ArticlesList
           articles={this.props.articles}
-          onArticleItem={this.handleOnArticleItem}
+          onArticleItem={this.handleOnArticleItem.bind(this, "HOA")}
           onUpdateArticle={this.handleOnUpdateArticle}
           onDeleteArticle={this.handleOnDeleteArticle}
         />
