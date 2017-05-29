@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import 'normalize-css';
 import './app.css';
@@ -7,7 +7,9 @@ import './app.css';
 import Header from '../Header';
 import Main from '../Main';
 import Footer from '../Footer';
-import Details from '../Details';
+import DetailsContainer from '../Details/detailsContainer';
+
+import Hello from '../Hello';
 
 class App extends Component {
   // Renders
@@ -19,7 +21,7 @@ class App extends Component {
             <Router>
               <div>
                 <Route exact path="/" component={Main}/>
-                <Route exact path="/:id" component={Details}/>
+                <Route exact path="/:id" component={DetailsContainer}/>
               </div>
             </Router>
             <Footer />

@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
-import { bindActionCreators  } from 'redux';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import Article from '../Article';
+import './listArticles.css'
+
+import Article from '../Article'
 import * as listArticleActions from '../../redux/Actions/listArticleActions';
 
-import './listArticles.css';
 
 class ListArticles extends Component{
   constructor(props, context){
     super(props, context);
+    this.handleUpdateArticle = this.handleUpdateArticle.bind(this);
+    this.handleDeleteArticle = this.handleDeleteArticle.bind(this);
   }
 
   componentWillMount() {
     this.props.listArticleActions.loadListArticlesInit();
+  }
+
+  // Se deja preparado para el ejecicio 3
+  handleUpdateArticle(event){
+    event.preventDefault();
+    console.log("Update Article");
+  }
+  // Se deja preparado para el ejecicio 3
+  handleDeleteArticle(event){
+    event.preventDefault();
+    console.log("Delete Article");
   }
 
   render(){
@@ -29,6 +43,8 @@ class ListArticles extends Component{
             content={article.content}
             published={article.published}
             tags={article.tags}
+            onUpdateArticle={this.handleUpdateArticle}
+            onDeleteArticle={this.handleDeleteArticle}
           />
         })}
       </div>

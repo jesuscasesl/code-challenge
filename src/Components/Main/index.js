@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 
-import ListArticles from '../ListArticles';
+import ArticlesContainer from '../Articles/articlesContainer';
 
-class Main extends Component {
-
-  // Renders
-  render() {
+function Main () {
     return (
       <div className="Main">
-        <ListArticles />
+        <ArticlesContainer />
       </div>
     );
-  }
 }
 
 export default Main;
