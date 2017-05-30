@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import uuid from 'uuid';
 
 import ArticlesItem from './articlesItem';
 import './css/articlesList.css';
 
 const ArticlesList = ({
   articles,
-  onArticleItem,
   onUpdateArticle,
   onDeleteArticle
 }) => (
@@ -16,7 +14,6 @@ const ArticlesList = ({
       articles.map(article => (
         <ArticlesItem
           key={article.id}
-          onArticleItem={onArticleItem}
           onUpdateArticle={onUpdateArticle}
           onDeleteArticle={onDeleteArticle}
           {...article}
@@ -29,7 +26,6 @@ const ArticlesList = ({
 
 ArticlesList.propTypes = {
   articles: PropTypes.arrayOf(PropTypes.object),
-  onArticleItem: PropTypes.func.isRequired,
   onUpdateArticle: PropTypes.func.isRequired,
   onDeleteArticle: PropTypes.func.isRequired
 };

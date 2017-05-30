@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import DetailsItem from './detailsItem';

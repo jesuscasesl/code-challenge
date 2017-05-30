@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import ArticlesContainer from '../Articles/articlesContainer';
 
 function Main () {
-    return (
+  return (
       <div className="Main">
         <ArticlesContainer />
       </div>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -10,7 +9,6 @@ import * as listArticleActions from '../../redux/Actions/listArticleActions';
 class ArticlesContainer extends Component {
   constructor (props) {
     super(props);
-    this.handleOnArticleItem = this.handleOnArticleItem.bind(this);
     this.handleOnUpdateArticle = this.handleOnUpdateArticle.bind(this);
     this.handleOnDeleteArticle = this.handleOnDeleteArticle.bind(this);
   }
@@ -19,10 +17,14 @@ class ArticlesContainer extends Component {
     this.props.listArticleActions.loadListArticlesInit();
   }
 
+  /*
   handleOnArticleItem(event){
     // Metodo para redirecionar y buscar en los articulos por id
-    console.log(this.props.articles.find(item => item.id === "592b49fb250e940d9afdc848"));
+    //console.log(this.props.articles.find(item => item.id === "592b49fb250e940d9afdc848"));
+    console.log("HOLA");
+    return <Redirect to='/hola'/>
   }
+  */
 
   handleOnUpdateArticle(){
     console.log("UPDATE")
@@ -37,7 +39,6 @@ class ArticlesContainer extends Component {
       <section className="container">
         <ArticlesList
           articles={this.props.articles}
-          onArticleItem={this.handleOnArticleItem}
           onUpdateArticle={this.handleOnUpdateArticle}
           onDeleteArticle={this.handleOnDeleteArticle}
         />
