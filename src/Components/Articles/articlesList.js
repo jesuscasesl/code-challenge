@@ -6,7 +6,6 @@ import './css/articlesList.css';
 
 const ArticlesList = ({
   articles,
-  onArticleItem,
   onUpdateArticle,
   onDeleteArticle
 }) => (
@@ -15,7 +14,10 @@ const ArticlesList = ({
       articles.map(article => (
         <ArticlesItem
           key={article.id}
+<<<<<<< HEAD
           onArticleItem={onArticleItem.bind(this, `${article.id}`)}
+=======
+>>>>>>> secondExercise
           onUpdateArticle={onUpdateArticle}
           onDeleteArticle={onDeleteArticle}
           {...article}
@@ -28,7 +30,6 @@ const ArticlesList = ({
 
 ArticlesList.propTypes = {
   articles: PropTypes.arrayOf(PropTypes.object),
-  onArticleItem: PropTypes.func.isRequired,
   onUpdateArticle: PropTypes.func.isRequired,
   onDeleteArticle: PropTypes.func.isRequired
 };

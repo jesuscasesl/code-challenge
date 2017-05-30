@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import 'normalize-css';
 import './app.css';
@@ -18,8 +18,10 @@ class App extends Component {
             <Header />
             <Router>
               <div>
-                <Route exact path="/" component={Main}/>
-                <Route exact path="/:id" component={DetailsContainer}/>
+                <Switch>
+                  <Route exact path="/" component={Main}/>
+                  <Route exact path="/article:id" component={DetailsContainer}/>
+                </Switch>
               </div>
             </Router>
             <Footer />

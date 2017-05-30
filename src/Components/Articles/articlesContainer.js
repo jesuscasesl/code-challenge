@@ -9,7 +9,6 @@ import * as listArticleActions from '../../redux/Actions/listArticleActions';
 class ArticlesContainer extends Component {
   constructor (props) {
     super(props);
-    this.handleOnArticleItem = this.handleOnArticleItem.bind(this);
     this.handleOnUpdateArticle = this.handleOnUpdateArticle.bind(this);
     this.handleOnDeleteArticle = this.handleOnDeleteArticle.bind(this);
   }
@@ -18,12 +17,22 @@ class ArticlesContainer extends Component {
     this.props.listArticleActions.loadListArticlesInit();
   }
 
+<<<<<<< HEAD
   handleOnArticleItem(event, value){
     // Metodo para redirecionar y buscar en los articulos por id
     let articleSelect = this.props.articles.find(item => item.id === value);
     console.log(articleSelect);
     this.props.listArticleActions.articleSelected(articleSelect);
+=======
+  /*
+  handleOnArticleItem(event){
+    // Metodo para redirecionar y buscar en los articulos por id
+    //console.log(this.props.articles.find(item => item.id === "592b49fb250e940d9afdc848"));
+    console.log("HOLA");
+    return <Redirect to='/hola'/>
+>>>>>>> secondExercise
   }
+  */
 
   handleOnUpdateArticle(){
     console.log("UPDATE")
@@ -38,7 +47,10 @@ class ArticlesContainer extends Component {
       <section className="container">
         <ArticlesList
           articles={this.props.articles}
+<<<<<<< HEAD
           onArticleItem={this.handleOnArticleItem.bind(this, "HOA")}
+=======
+>>>>>>> secondExercise
           onUpdateArticle={this.handleOnUpdateArticle}
           onDeleteArticle={this.handleOnDeleteArticle}
         />

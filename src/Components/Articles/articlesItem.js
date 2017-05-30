@@ -1,7 +1,10 @@
 import React from 'react';
 
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 
+=======
+>>>>>>> secondExercise
 import ArticlesButtons from './articlesButtons';
 import './css/articlesItem.css';
 
@@ -12,12 +15,12 @@ const ArticlesItem = ({
   excerpt,
   published,
   content,
-  onArticleItem,
   onUpdateArticle,
   onDeleteArticle
 }) => (
   <div className="article">
     <div className="info">
+<<<<<<< HEAD
       <Link
         to={{
           pathname: `${id}`,
@@ -43,6 +46,24 @@ const ArticlesItem = ({
           onDeleteArticle={onDeleteArticle}
         />
       </div>
+=======
+      <h2 className="author">{author}</h2>
+      <h3 className="title">{title}</h3>
+      <p className="excerpt">{excerpt}</p>
+      <span className="id">{id}</span>
+    </div>
+    <div className="buttons">
+      <ArticlesButtons
+        id={id}
+        author={author}
+        title={title}
+        published={published}
+        content={content}
+        onUpdateArticle={onUpdateArticle}
+        onDeleteArticle={onDeleteArticle}
+      />
+    </div>
+>>>>>>> secondExercise
   </div>
 );
 
