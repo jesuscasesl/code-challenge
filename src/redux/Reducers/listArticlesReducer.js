@@ -1,7 +1,8 @@
 import {
   LOAD_LIST_ARTICLES_INIT,
   LOAD_LIST_ARTICLES_SUCCESS,
-  LOAD_LIST_ARTICLES_FAILURE
+  LOAD_LIST_ARTICLES_FAILURE,
+  ARTICLE_SELECTED
 } from '../Actions/types';
 import initialState from './initialState';
 
@@ -27,6 +28,14 @@ export default function listArticlesReducer (state = initialState.listArticles, 
         ...state,
         articles: [],
         error: action.payload,
+        loading: false
+      };
+
+    case ARTICLE_SELECTED:
+      return {
+        ...state,
+        articles: [action.payload],
+        error: null,
         loading: false
       };
 

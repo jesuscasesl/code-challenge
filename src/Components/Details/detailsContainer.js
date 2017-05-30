@@ -5,9 +5,6 @@ import DetailsItem from './detailsItem';
 
 
 class DetailsContainer extends Component {
-  constructor (props) {
-    super(props);
-  }
 
   render () {
     let published = "NO";

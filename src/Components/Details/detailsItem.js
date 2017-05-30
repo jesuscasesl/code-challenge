@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 import './details.css';
 
-const detailsItem = ({
+const Details = ({
   author,
   title,
   content,
-  published
+  isPublish
 }) => (
   <div className="container-details">
     <div className="details">
@@ -20,9 +20,6 @@ const detailsItem = ({
       <label htmlFor="content" className="details-label">Content</label>
       <h3 id="content" className="details-content">{content}</h3>
 
-      <label htmlFor="content" className="details-label">Pubish</label>
-      <h3 id="content" className="details-content">{published}</h3>
-
       <Link to="/" className="icon-return">
         <span className="fa fa-reply fa-2x"></span>
       </Link>
@@ -30,4 +27,4 @@ const detailsItem = ({
   </div>
 );
 
-export default detailsItem;
+export default Details;

@@ -1,7 +1,8 @@
 import {
   LOAD_LIST_ARTICLES_INIT,
   LOAD_LIST_ARTICLES_SUCCESS,
-  LOAD_LIST_ARTICLES_FAILURE
+  LOAD_LIST_ARTICLES_FAILURE,
+  ARTICLE_SELECTED
 } from './types';
 import request from '../../api/Request';
 import { ARTICLES_QUERY } from '../../api/Queries';
@@ -21,7 +22,7 @@ export function loadListArticlesFailure (err) {
   };
 }
 
-export function loadListArticlesInit (aaa) {
+export function loadListArticlesInit () {
   return async (dispatch) => {
     dispatch(() => {
       return {
@@ -38,4 +39,11 @@ export function loadListArticlesInit (aaa) {
       dispatch(loadListArticlesFailure(error));
     }
   }
+}
+
+export function articleSelected (articleSelected) {
+  return {
+    type: ARTICLE_SELECTED,
+    payload: articleSelected
+  };
 }

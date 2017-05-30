@@ -1,5 +1,4 @@
 import React from 'react';
-
 import ArticlesButtons from './articlesButtons';
 import './css/articlesItem.css';
 
@@ -31,6 +30,7 @@ const ArticlesItem = ({
         onDeleteArticle={onDeleteArticle}
       />
     </div>
+
   </div>
 );
 
