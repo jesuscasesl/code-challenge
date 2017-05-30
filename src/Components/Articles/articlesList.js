@@ -14,10 +14,6 @@ const ArticlesList = ({
       articles.map(article => (
         <ArticlesItem
           key={article.id}
-<<<<<<< HEAD
-          onArticleItem={onArticleItem.bind(this, `${article.id}`)}
-=======
->>>>>>> secondExercise
           onUpdateArticle={onUpdateArticle}
           onDeleteArticle={onDeleteArticle}
           {...article}
