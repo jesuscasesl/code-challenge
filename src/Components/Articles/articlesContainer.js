@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import ArticlesList from './articlesList';
-import * as listArticleActions from '../../redux/Actions/listArticleActions';
+import * as listArticleActions from '../../store/action/listArticleActions';
 
 class ArticlesContainer extends Component {
   constructor (props) {
@@ -16,15 +16,6 @@ class ArticlesContainer extends Component {
   componentWillMount() {
     this.props.listArticleActions.loadListArticlesInit();
   }
-
-  /*
-  handleOnArticleItem(event){
-    // Metodo para redirecionar y buscar en los articulos por id
-    //console.log(this.props.articles.find(item => item.id === "592b49fb250e940d9afdc848"));
-    console.log("HOLA");
-    return <Redirect to='/hola'/>
-  }
-  */
 
   handleOnUpdateArticle(){
     console.log("UPDATE")

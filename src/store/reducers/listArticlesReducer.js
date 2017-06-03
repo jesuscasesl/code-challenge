@@ -4,8 +4,8 @@ import {
   LOAD_LIST_ARTICLES_FAILURE,
   ARTICLE_SELECTED,
   LOAD_ITEM_ARTICLES_SUCCESS
-} from '../Actions/types';
-import initialState from './initialState';
+} from './../action/types';
+import initialState from './../initialState';
 
 export default function listArticlesReducer (state = initialState.listArticles, action) {
 
