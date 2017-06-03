@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import DetailsItem from './detailsItem';
 
 
+import * as listArticleActions from '../../store/action/listArticleActions';
+
+
 class DetailsContainer extends Component {
 
+  constructor(props){
+    super(props)
+  }
+  componentWillMount() {
+    this.props.listArticleActions.articleSelected(this.props.location.state.id);
+  }
+
   render () {
+    console.log(this.props);
     let published = "NO";
     let ispublished = this.props.location.state.published;
     if(ispublished){
@@ -32,4 +45,19 @@ DetailsContainer.propTypes = {
   published: PropTypes.bool
 };
 
-export default DetailsContainer;
+
+
+function mapStateToProps (state) {
+  return {
+    articles: state.listArticles.articles,
+    loading: state.listArticles.loading
+  };
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    listArticleActions: bindActionCreators(listArticleActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DetailsContainer);

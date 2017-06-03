@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import './listArticles.css'
 
 import Article from '../Article'
-import * as listArticleActions from '../../redux/Actions/listArticleActions';
+import * as listArticleActions from '../../store/action/listArticleActions';
 
 
 class ListArticles extends Component{

@@ -3,7 +3,7 @@ import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import rootReducer from '../Reducers';
+import rootReducer from './reducers';
 
 const enhancer = composeWithDevTools(
   applyMiddleware(thunk, createLogger)
