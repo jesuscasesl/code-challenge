@@ -1,31 +1,31 @@
 import {
-  LIST_ARTICLES_LOAD,
-  LIST_ARTICLES_SUCCESS,
-  LIST_ARTICLES_ERROR
+  ARTICLE_SELECTED_LOAD,
+  ARTICLE_SELECTED_SUCESS,
+  ARTICLE_SELECTED_ERROR
 } from './../action/types';
 import initialState from './../initialState';
 
-export default function listArticlesReducer (state = initialState.listArticles, action) {
+export default function itemArticleReducer (state = initialState.itemArticle, action) {
   switch (action.type) {
-    case LIST_ARTICLES_LOAD:
+    case ARTICLE_SELECTED_LOAD:
       return {
         ...state,
-        error:   null,
-        loading: true
+        error:    null,
+        loading:  true
       };
 
-    case LIST_ARTICLES_SUCCESS:
+    case ARTICLE_SELECTED_SUCESS:
     return {
       ...state,
-      articles: action.payload,
+      article:  action.payload,
       error:    null,
       loading:  false
     };
 
-    case LIST_ARTICLES_ERROR:
+    case ARTICLE_SELECTED_ERROR:
       return {
         ...state,
-        articles: [],
+        article:  [],
         error:    action.payload,
         loading:  false
       };

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import DetailsItem from './detailsItem';
 
 
-import * as listArticleActions from '../../store/action/listArticleActions';
+import * as itemArticleActions from '../../store/action/itemArticleActions';
 
 
 class DetailsContainer extends Component {
@@ -15,23 +15,14 @@ class DetailsContainer extends Component {
     super(props)
   }
   componentWillMount() {
-    this.props.listArticleActions.articleSelected(this.props.location.state.id);
+    this.props.itemArticleActions.articleSelectedLoad(this.props.location.state.id);
   }
 
   render () {
-    console.log(this.props);
-    let published = "NO";
-    let ispublished = this.props.location.state.published;
-    if(ispublished){
-      published = "SI"
-    }
     return (
       <section className="container">
         <DetailsItem
-          author={this.props.location.state.author}
-          title={this.props.location.state.title}
-          content={this.props.location.state.content}
-          published={published}
+          article={this.props.article}
         />
       </section>
     )
@@ -39,24 +30,23 @@ class DetailsContainer extends Component {
 }
 
 DetailsContainer.propTypes = {
-  author: PropTypes.string,
-  title: PropTypes.string,
-  content: PropTypes.string,
-  published: PropTypes.bool
+  article: PropTypes.object,
+  error: PropTypes.string,
+  loading: PropTypes.bool
 };
 
 
 
 function mapStateToProps (state) {
   return {
-    articles: state.listArticles.articles,
-    loading: state.listArticles.loading
+    article: state.itemArticle.article,
+    loading: state.itemArticle.loading
   };
 }
 
 function mapDispatchToProps (dispatch) {
   return {
-    listArticleActions: bindActionCreators(listArticleActions, dispatch)
+    itemArticleActions: bindActionCreators(itemArticleActions, dispatch)
   };
 }
 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import ArticlesList from './articlesList';
-import * as listArticleActions from '../../store/action/listArticleActions';
+import * as listArticlesActions from '../../store/action/listArticlesActions';
 
 class ArticlesContainer extends Component {
   constructor (props) {
@@ -14,7 +14,7 @@ class ArticlesContainer extends Component {
   }
 
   componentWillMount() {
-    this.props.listArticleActions.loadListArticlesInit();
+    this.props.listArticlesActions.loadArticleLoad();
   }
 
   handleOnUpdateArticle(){
@@ -53,7 +53,7 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    listArticleActions: bindActionCreators(listArticleActions, dispatch)
+    listArticlesActions: bindActionCreators(listArticlesActions, dispatch)
   };
 }
 
