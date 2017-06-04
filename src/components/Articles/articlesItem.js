@@ -18,7 +18,6 @@ const ArticlesItem = ({
       <h2 className="author">{author}</h2>
       <h3 className="title">{title}</h3>
       <p className="excerpt">{excerpt}</p>
-      <span className="id">{id}</span>
     </div>
     <div className="buttons">
       <ArticlesButtons
