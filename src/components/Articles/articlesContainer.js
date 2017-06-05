@@ -21,8 +21,9 @@ class ArticlesContainer extends Component {
     console.log("UPDATE")
   }
 
-  handleOnDeleteArticle(){
-      console.log("DELETE")
+  handleOnDeleteArticle(id){
+      console.log("DELETE");
+      this.props.listArticlesActions.deleteArticles(id);
   }
 
   render () {

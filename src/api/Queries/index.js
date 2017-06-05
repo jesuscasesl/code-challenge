@@ -9,3 +9,19 @@ export const ARTICLES_QUERY = `{
     tags
   }
 }`;
+
+
+export const ARTICLE_DELETE_QUERY = id => {
+  const query = `mutation {
+      DeleteArticle(id: "${id}") {
+        id
+        author
+        excerpt
+        title
+        content
+        published
+        tags
+      }
+  }`;
+  return query;
+};

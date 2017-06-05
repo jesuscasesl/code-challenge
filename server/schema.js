@@ -3,6 +3,7 @@ import {
   GraphQLObjectType,
   GraphQLString,
   GraphQLList,
+  GraphQLID,
   GraphQLSchema,
 } from 'graphql';
 import db from './db';
@@ -45,11 +46,33 @@ const Query = new GraphQLObjectType({
         return db.Article.find();
       },
     },
+    article: {
+      type: articleType,
+      args: { id: { type: GraphQLID } },
+      resolve: (_, { id }) => {
+        return db.Article.findById(id);
+      },
+    },
+  }),
+});
+
+const Mutation = new GraphQLObjectType({
+  name: 'Mutation',
+  description: 'This is a root mutation',
+  fields: () => ({
+    DeleteArticle: {
+      type: articleType,
+      args: { id: { type: GraphQLID } },
+      resolve: (_, { id }) => {
+        return db.Article.findOneAndRemove({ _id: id });
+      },
+    },
   }),
 });
 
 const Schema = new GraphQLSchema({
   query: Query,
+  mutation: Mutation,
 });
 
 export default Schema;

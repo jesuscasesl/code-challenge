@@ -14,6 +14,7 @@ class DetailsContainer extends Component {
   constructor(props){
     super(props)
   }
+  
   componentWillMount() {
     this.props.itemArticleActions.articleSelectedLoad(this.props.location.state.id);
   }

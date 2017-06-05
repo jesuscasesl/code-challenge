@@ -15,7 +15,7 @@ const ArticlesList = ({
         <ArticlesItem
           key={article.id}
           onUpdateArticle={onUpdateArticle}
-          onDeleteArticle={onDeleteArticle}
+          onDeleteArticle={onDeleteArticle.bind(this, article.id )}
           {...article}
         />
       )).reverse()
