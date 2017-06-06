@@ -2,10 +2,14 @@ import {
   LIST_ARTICLES_LOAD,
   LIST_ARTICLES_SUCCESS,
   LIST_ARTICLES_ERROR,
-  DELETE_ARTICLES
+  DELETE_ARTICLES,
+  NEW_ARTICLES
 } from './types';
 import request from '../../api/Request';
-import { ARTICLES_QUERY, ARTICLE_DELETE_QUERY } from '../../api/Queries';
+import { ARTICLES_QUERY, ARTICLE_DELETE_QUERY, ARTICLE_ADD_QUERY } from '../../api/Queries';
+
+
+import {withRouter} from "react-router-dom";
 
 // Actions Creators
 export function listArticleSucess (articles) {
@@ -28,6 +32,17 @@ export function deleteArticleSucess (deleteItem) {
     payload:  deleteItem
   };
 }
+
+export function newArticleSucess (newItem) {
+  return {
+    type:     NEW_ARTICLES,
+    payload:  newItem
+  };
+}
+
+
+
+
 
 export const loadArticleLoad = () => (dispatch, getState) => {
   dispatch(() => {
@@ -56,7 +71,6 @@ export const loadArticleLoad = () => (dispatch, getState) => {
   }
 }
 
-
 export const deleteArticles = (id) => (dispatch, getState) => {
 
     let delArticle = new Promise((resolve, reject) => {
@@ -67,6 +81,31 @@ export const deleteArticles = (id) => (dispatch, getState) => {
     delArticle
       .then(function(val) {
         dispatch(deleteArticleSucess(val.data.DeleteArticle));
+      })
+      .catch(function(err) {
+        console.log("WOooo Error");
+      });
+}
+
+export const newArticles = (article) => (dispatch, getState) => {
+    debugger;
+    let newArticle = new Promise((resolve, reject) => {
+      let newArticleApi = request(
+        ARTICLE_ADD_QUERY(
+          article.author,
+          article.title,
+          article.content,
+          article.excerpt,
+          article.published,
+          article.tags
+        )
+      );
+      resolve(newArticleApi);
+    });
+
+    newArticle
+      .then(function(val) {
+        dispatch(newArticleSucess(val.data.AddArticle));
       })
       .catch(function(err) {
         console.log("WOooo Error");

@@ -16,7 +16,7 @@ const ArticlesButtons = ({
   <div className="buttonsArticle">
     <Link
       to={{
-        pathname: `article${id}`,
+        pathname: `article/${id}`,
         state: {
          id: id,
          author: author,

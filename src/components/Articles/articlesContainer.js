@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -28,7 +29,14 @@ class ArticlesContainer extends Component {
 
   render () {
     return (
-      <section className="container">
+      <section className="container-listArticle">
+        <div className="newArticle">
+          <span className="newArticle-title">New Article</span>
+          <Link to="/form/" className="icon-return">
+            <span className="fa fa-plus fa-2x"></span>
+          </Link>
+        </div>
+
         <ArticlesList
           articles={this.props.articles}
           onUpdateArticle={this.handleOnUpdateArticle}

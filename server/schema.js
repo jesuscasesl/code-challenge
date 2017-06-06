@@ -67,6 +67,45 @@ const Mutation = new GraphQLObjectType({
         return db.Article.findOneAndRemove({ _id: id });
       },
     },
+    AddArticle: {
+      type: articleType,
+      args: {
+        author: {
+          name: 'author',
+          type: GraphQLString,
+        },
+        title: {
+          name: 'title',
+          type: GraphQLString,
+        },
+        content: {
+          name: 'content',
+          type: GraphQLString,
+        },
+        excerpt: {
+          name: 'excerpt',
+          type: GraphQLString,
+        },
+        published: {
+          name: 'published',
+          type: GraphQLBoolean,
+        },
+        tags: {
+          name: 'tags',
+          type: GraphQLString,
+        },
+
+      },
+      resolve: (_, { author, title, content, excerpt, published, tags }) => {
+        const arrayTags = tags === '' ? [] : tags.split(',');
+        const finalObject = new db.Article({ id, author, title, content, excerpt, published, tags: arrayTags  });
+        return new Promise((resolve) => {
+          finalObject.save((err, res) => {
+            resolve(res);
+          });
+        });
+      },
+    },
   }),
 });
 

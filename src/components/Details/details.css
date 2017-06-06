@@ -1,5 +1,10 @@
 .container-details{
+  flex-grow: 1;
+}
+
+.details{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -34,7 +39,6 @@
 
 @media (min-width: 700px) {
   .container-details{
-    margin: 3rem;
     padding: 2rem;
   }
 
@@ -52,7 +56,6 @@
 
 @media (min-width:1025px){
   .container-details{
-    margin: 5rem;
     padding: 3rem;
   }
 

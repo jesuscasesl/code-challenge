@@ -5,25 +5,26 @@ import 'normalize-css';
 import './app.css';
 
 import Header from '../Header';
-import Main from '../Main';
-import Footer from '../Footer';
+import ArticlesContainer from '../Articles/articlesContainer';
 import DetailsContainer from '../Details/detailsContainer';
+import Footer from '../Footer';
+import Form from '../Form/form';
+
 
 class App extends Component {
   // Renders
   render() {
     return (
       <div className="app">
-          <div className="app">
-            <Header />
-            <Router>
-                <Switch>
-                  <Route exact path="/" component={Main}/>
-                  <Route exact path="/article:id" component={DetailsContainer}/>
-                </Switch>
-            </Router>
-            <Footer />
-          </div>
+        <Header />
+        <Router>
+            <Switch>
+              <Route exact path="/" component={ArticlesContainer}/>
+              <Route exact path="/article/:id" component={DetailsContainer}/>
+              <Route exact path="/form/" component={Form}/>
+            </Switch>
+        </Router>
+        <Footer />
       </div>
     );
   }
