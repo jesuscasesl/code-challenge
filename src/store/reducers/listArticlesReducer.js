@@ -2,7 +2,8 @@ import {
   LIST_ARTICLES_LOAD,
   LIST_ARTICLES_SUCCESS,
   LIST_ARTICLES_ERROR,
-  DELETE_ARTICLES
+  DELETE_ARTICLES,
+  NEW_ARTICLES
 } from './../action/types';
 import initialState from './../initialState';
 
@@ -31,17 +32,23 @@ export default function listArticlesReducer (state = initialState.listArticles, 
         loading:  false
       };
 
-      case DELETE_ARTICLES:
-        const searchItem = (elem) => elem._id === action.payload;
-        let itemA = state.articles.find(item => item.id === action.payload.id)
-        const index = state.articles.findIndex(item => item.id === action.payload.id);
+    case DELETE_ARTICLES:
+      const index = state.articles.findIndex(item => item.id === action.payload.id);
 
+      return {
+        ...state,
+        articles:[
+          ...state.articles.slice(0, index),
+          ...state.articles.slice(index + 1)
+        ],
+        error:    null,
+        loading:  false
+      };
+
+      case NEW_ARTICLES:
         return {
           ...state,
-          articles:[
-            ...state.articles.slice(0, index),
-            ...state.articles.slice(index + 1)
-          ],
+          items: [...state.articles, action.payload],
           error:    null,
           loading:  false
         };
