@@ -59,7 +59,7 @@ export const loadArticleLoad = () => (dispatch, getState) => {
     });
 
     getStateArticles
-      .then(function(val) {
+    .then(function(val) {
         dispatch(listArticleSucess(val.data.articles));
       })
       .catch(function(err) {
@@ -67,7 +67,12 @@ export const loadArticleLoad = () => (dispatch, getState) => {
       });
   }
   else{
-    dispatch(listArticleSucess(state.listArticles.articles));
+    if(state.listArticles.items === undefined){
+      dispatch(listArticleSucess(state.listArticles.articles));
+    }
+    else{
+      dispatch(listArticleSucess(state.listArticles.items));
+    }
   }
 }
 
@@ -90,22 +95,35 @@ export const deleteArticles = (id) => (dispatch, getState) => {
 export const newArticles = (article) => (dispatch, getState) => {
     debugger;
     let newArticle = new Promise((resolve, reject) => {
+      let formPublished = false;
+      if(article.published === "YES"){
+        formPublished = true;
+      }
+
       let newArticleApi = request(
         ARTICLE_ADD_QUERY(
+          article.id,
           article.author,
           article.title,
           article.content,
           article.excerpt,
-          article.published,
+          formPublished,
           article.tags
         )
       );
+      debugger;
       resolve(newArticleApi);
     });
 
     newArticle
       .then(function(val) {
+        debugger;
         dispatch(newArticleSucess(val.data.AddArticle));
+        return true;
+      })
+      .then(function(val) {
+        debugger;
+        dispatch(loadArticleLoad());
       })
       .catch(function(err) {
         console.log("WOooo Error");

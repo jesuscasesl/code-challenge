@@ -41,7 +41,7 @@ class Form extends Component{
       tags: this.state.tags
    }
    this.props.listArticlesActions.newArticles(formData);
-   this.props.listArticlesActions.loadArticleLoad();
+   debugger;
    this.props.history.push('/');
   }
 
