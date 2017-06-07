@@ -34,7 +34,6 @@ export default function listArticlesReducer (state = initialState.listArticles, 
 
     case DELETE_ARTICLES:
       const index = state.articles.findIndex(item => item.id === action.payload.id);
-
       return {
         ...state,
         articles:[
@@ -46,10 +45,8 @@ export default function listArticlesReducer (state = initialState.listArticles, 
       };
 
       case NEW_ARTICLES:
-      debugger;
         return {
-          ...state,
-          items: [...state.articles, action.payload],
+          articles: [...state.articles, action.payload],
           error:    null,
           loading:  false
         };

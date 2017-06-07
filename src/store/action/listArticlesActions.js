@@ -67,12 +67,7 @@ export const loadArticleLoad = () => (dispatch, getState) => {
       });
   }
   else{
-    if(state.listArticles.items === undefined){
-      dispatch(listArticleSucess(state.listArticles.articles));
-    }
-    else{
-      dispatch(listArticleSucess(state.listArticles.items));
-    }
+    dispatch(listArticleSucess(state.listArticles.articles));
   }
 }
 
@@ -93,7 +88,6 @@ export const deleteArticles = (id) => (dispatch, getState) => {
 }
 
 export const newArticles = (article) => (dispatch, getState) => {
-    debugger;
     let newArticle = new Promise((resolve, reject) => {
       let formPublished = false;
       if(article.published === "YES"){
@@ -111,18 +105,15 @@ export const newArticles = (article) => (dispatch, getState) => {
           article.tags
         )
       );
-      debugger;
       resolve(newArticleApi);
     });
 
     newArticle
       .then(function(val) {
-        debugger;
         dispatch(newArticleSucess(val.data.AddArticle));
         return true;
       })
       .then(function(val) {
-        debugger;
         dispatch(loadArticleLoad());
       })
       .catch(function(err) {
