@@ -1,0 +1,9 @@
+.container-noFound{
+  display: flex;
+  justify-content: center;
+  margin: 3rem;
+  flex-grow: 1;
+}
+
+.noFound-title{
+}
