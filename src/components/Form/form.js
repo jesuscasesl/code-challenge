@@ -23,13 +23,13 @@ class Form extends Component{
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange = (e) => {
+  handleChange (e) {
     let newState = {};
     newState[e.target.name] = e.target.value;
     this.setState(newState);
   };
 
-  handleSubmit = (e) => {
+  handleSubmit (e) {
     e.preventDefault();
     let formData = {
       id: uuid.v4(),
@@ -41,7 +41,6 @@ class Form extends Component{
       tags: this.state.tags
    }
    this.props.listArticlesActions.newArticles(formData);
-   debugger;
    this.props.history.push('/');
   }
 
