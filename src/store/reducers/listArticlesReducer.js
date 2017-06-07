@@ -46,6 +46,7 @@ export default function listArticlesReducer (state = initialState.listArticles, 
       };
 
       case NEW_ARTICLES:
+      debugger;
         return {
           ...state,
           items: [...state.articles, action.payload],

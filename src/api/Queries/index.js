@@ -27,9 +27,10 @@ export const ARTICLE_DELETE_QUERY = id => {
 };
 
 
-export const ARTICLE_ADD_QUERY = (author, title, content, excerpt, published, tags ) => {
+export const ARTICLE_ADD_QUERY = (id, author, title, content, excerpt, published, tags ) => {
   const query = `mutation {
       AddArticle(
+        id:        "${id}",
         author:    "${author}",
         title:     "${title}"
         content:   "${content}",
@@ -37,6 +38,7 @@ export const ARTICLE_ADD_QUERY = (author, title, content, excerpt, published, ta
         published:  ${published},
         tags:      "${tags}",
       ){
+        id
         author
         title
         content

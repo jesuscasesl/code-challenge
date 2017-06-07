@@ -70,6 +70,10 @@ const Mutation = new GraphQLObjectType({
     AddArticle: {
       type: articleType,
       args: {
+        id: {
+          name: 'id',
+          type: GraphQLString,
+        },
         author: {
           name: 'author',
           type: GraphQLString,
@@ -96,7 +100,7 @@ const Mutation = new GraphQLObjectType({
         },
 
       },
-      resolve: (_, { author, title, content, excerpt, published, tags }) => {
+      resolve: (_, { id, author, title, content, excerpt, published, tags }) => {
         const arrayTags = tags === '' ? [] : tags.split(',');
         const finalObject = new db.Article({ id, author, title, content, excerpt, published, tags: arrayTags  });
         return new Promise((resolve) => {
